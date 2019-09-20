@@ -20,6 +20,7 @@ activate <name>
 
 ```bash
 deactivate <name>
+or conda deactivate 
 ```
 
 删除环境
