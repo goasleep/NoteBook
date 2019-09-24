@@ -1,20 +1,18 @@
-SSL(Secure Socket Layer)
+### SSL(Secure Socket Layer)
 
-SSL位于应用层和TCP层之间
+#### 简介
 
-密钥交换算法：DH算法(Diffie-Hellman)，RSA加密算法
+- SSL位于应用层和TCP层之间。
+- 使用的的算法
+  - 密钥交换算法：DH算法(Diffie-Hellman)，RSA加密算法
+  - 散列算法：MD5，SHA-1
 
-散列算法：MD5，SHA-1
+- 三个特性
+  - 保密性
+  - 鉴别
+  - 完整性
 
-三个特性
-
-- 保密性
-- 鉴别
-- 完整性
-
-
-
-SSL的三个子协议
+#### SSL的三个子协议
 
 - [握手协议](https://blog.csdn.net/hherima/article/details/52469674)
 
@@ -33,7 +31,7 @@ SSL的三个子协议
 
   客户机和服务器发现错误时，就会向对方发送一个劲爆消息。如果是致命错误，就会关闭SSL链接，删除相关的会话。
 
-
+  
 
 ## 参考文献
 
