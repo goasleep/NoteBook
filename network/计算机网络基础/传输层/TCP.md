@@ -32,3 +32,22 @@ sequenceDiagram
     Server -> Client:SYN = 1, ACK = 1, seq = y,ack = x + 1
     Client -> Server:ACK = 1, seq = x + 1, ack = y + 1
 ```
+通俗来讲：
+client 对 server 说：我要建立连接
+server 对 client 说：我已经准好了建立连接了，你也准备一下
+client 对 server 说：我也准备好了，可以开始了传输数据了
+#### TCP的四次挥手
+``` mermaid
+sequenceDiagram
+    Client -> Server:FIN = 1, seq = u
+    Server -> Client:ACK = 1, seq = v,ack = u + 1
+    Server -> Client:FIN = 1, ACK = 1, seq = w, ack = u + 1
+    Client -> Server:ACK = 1, seq = u + 1, ack = w + 1
+    Client -> Client: wait 2MSL(Maximum Segment Lifetime)
+```
+通俗来讲：
+client 对 server 说：我传完数据了，我要关闭链接了
+server 对 client 说：等一下，我还有数据传给你
+server 传完在对 client 说：我也传完数据了，可以关闭链接了
+client 对 server 说：好的，我收到。
+client 等了一会再关，为了防止还有消息在路上。如果有通知过来，我就再等会。
