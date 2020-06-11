@@ -1,3 +1,4 @@
+[toc]
 ### XSS简介
 
 Cross-Site Scripting（跨站脚本攻击）简称 XSS。攻击者往Web页面里插入恶意的Script代码，当用户浏览该页之时，嵌入其中Web里面的Script代码会被执行，从而达到恶意攻击用户的目的。
@@ -13,8 +14,10 @@ Cross-Site Scripting（跨站脚本攻击）简称 XSS。攻击者往Web页面�
 将用户输入的数据“存储”在服务器端。如写下一篇包含恶意JavaScript代码的博客
 
 #### DOM 型XSS
-类似于反射性XSS，用户点击时，修改页面的DOM节点形成XSS 
+类似于反射性XSS，用户点击时，修改页面的DOM节点形成XSS
 
+通常来说风险：存储型 > 反射性
+攻击过程来说：反射性 > 存储型
 
 ### XSS攻击进阶
 #### XSS Payload
@@ -37,11 +40,46 @@ alert(navigator.userAgent);
 ```
 更高级的识别技巧：利用不同浏览器之间的是独有的对象判断
 
+#### 识别用户安装的软件
+如识别firefox的拓展
+
+#### 获取用户的真实IP地址
+如果客户安装了Java环境，XSS就可以通过调用JavaApplet的接口获取本机IP地址
 
 
+#### XSS构造技巧
+- 利用字符编码
+- 绕过长度限制
+  - 利用 location,hash 藏代码
+  - 远程加载JS
+  - 利用注释符
+- 使用\<base>标签
+  - 作用是定义页面上所有使用相对路径标签的host地址
+- window.name 实现跨域、跨页面请求数据
+
+
+### XSS防御
+XSS本质是“HTML 注入”
+#### HTTP only
+通过Set-Cookie给关键Cookie植入HTTPOnly标识，解决XXS后的Cookie劫持攻击
 防御：
-- 通过Set-Cookie给关键Cookie植入HTTPOnly标识
-- 将Cookie和用户IP绑定
+#### 输入检查
+前后端都对输入进行检查，检查用户输入的数据是否包含一些特殊的字符。这种方式成为“XSS Filter”
+#### 输出检查
+变量输出到HTML页面时，可以使用编码或者转义的方式防御XSS
+- 使用安全的编码函数，需要注意的是安全编码后的长度可能发生改变，影响某些功能
+- 可以考虑不止使用一种编码
+
+#### 处理富文本
+禁止危险标签：\<iframe>,\<script>,\<base>,\<form>
+标签应使用白名单，避免黑名单。如只允许使用\<a>,\<img>,\<div>等安全标签
+白名单同时应用于属性与事件的选择
+
+#### 防御DOM based XSS
+尽量避免用户的输入，关注会修改HTML的语句，如
+- xxx.innerHTML= 
+- document.write .....
+
 
 
 
