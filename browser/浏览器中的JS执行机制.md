@@ -5,6 +5,7 @@
 2. 变量被提升后，会给变量设置默认值
 
 ### JavaScript的执行流程
+![JavaScript的执行流程](../image/V8如何执行一段JavaScript代码.png)
 1. 语法检查
 2. 预编译阶段
    1. js的运行环境
