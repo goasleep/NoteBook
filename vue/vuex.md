@@ -1,6 +1,6 @@
 # Vuex
 ## Vuex的本质
-Vue的插件
+Vue本质上的插件
 核心就是一个Store对象，他是一个全局并且是单例的对象
 这个对象通过state保存数据，里面getter和mutation和action的操作方式
 
@@ -29,7 +29,27 @@ View
 
 ## 辅助函数
 本质是一个快捷映射，作用是简化开发
+```  javascript
+import { mapState } from 'vuex'
 
+export default {
+  computed: mapState({
+    count: state => state.count,
+    countAlias: 'count',
+    countPlusLocalState (state) {
+      return state.count + this.localCount
+    }
+  })
+}
+```
+在引用mapState以后，我们就可以使用
+``` javascript
+this.count 来代替 this.$store.count
+```
+
+都有对应的辅助函数
+state ---> mapState
+getters ---> mapGetters
 
 ### 为什么Mutation必须为同步
 Mutation唯一的限制就是同步Mutation,作用的为了能用devtools追踪变化
