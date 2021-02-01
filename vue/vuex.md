@@ -1,6 +1,6 @@
 # Vuex
 ## Vuex的本质
-Vue本质上的插件
+Vuex本质上是一个Vue插件，是一个状态管理器。
 核心就是一个Store对象，他是一个全局并且是单例的对象
 这个对象通过state保存数据，里面getter和mutation和action的操作方式
 
