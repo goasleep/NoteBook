@@ -1,56 +1,50 @@
-# linux文件目录
-## /bin 
+# linux基础知识
+## linux文件目录
+### /bin 
 二进制可执行命令 (ls,cat,mkdir等),启动时会用到的命令，即文件系统还没有被挂载的时候都可以使用的命令 
-## /boot
+### /boot
 放置开机的时候会使用的文件，包括一些连接文件以及镜像文件
-
-## /dev 
+### /dev 
 任何设备与设备接口都是以文件的形式存在于该目录中
-
-## /etc 系统管理和配置文件
+### /etc 系统管理和配置文件
 系统的所有配置文件都存在这个目录中
-
-
-## /opt 
+### /opt 
 额外安装的可选应用程序包所放置的位置。一般情况下，我们可以把tomcat等都安装到这里。
-
-## /home 
+### /home 
 用户的主目录，在 Linux 中，每个用户都有一个自己的目录，一般该目录名是以用户的账号命名的，比如用户user的主目录就是/home/user，可以用~user表示
-
-## /lib 标准程序设计库，又叫动态链接共享库，作用类似windows里的.dll文件
+### /lib 标准程序设计库，又叫动态链接共享库，作用类似windows里的.dll文件
 放置开机时会使用的函数库
-## /sbin 超级管理命令
+### /sbin 超级管理命令
 存放的是系统管理员使用的系统管理程序，如ifconfig等。
-
-## /tmp (temporary)
+### /tmp (temporary)
 公共的临时文件存储点
-
-## /boot 
+### /boot 
 存放用于系统引导时使用的各种文件
-
-## /root 
+### /root 
 系统管理员的主目录
-
-## /mnt 
+### /mnt 
 系统提供这个目录是让用户临时挂载其他的文件系统
-
-## /lost+found
+### /lost+found
 这个目录平时是空的，系统非正常关机而留下“无家可归”的文件
-
-## /proc 
+### /proc 
 虚拟的目录，是系统内存的映射。可直接访问这个目录来获取系统信息。
-## /media
+### /media
 下面放置可删除设备，linux 系统会自动识别一些设备，例如U盘、光驱
-
-## /srv（service）  
+### /srv（service）  
 该目录存放一些服务启动之后需要提取的数据，比如WWW服务的数据就可以放在这里
-
-## /sys
+### /sys
 sysfs 文件系统集成了下面3种文件系统的信息：针对进程信息的 proc 文件系统、针对设备的 devfs 文件系统以及针对伪终端的 devpts 文件系统。
 该文件系统是内核设备树的一个直观反映。当一个内核对象被创建的时候，对应的文件和目录也在内核对象子系统中被创建。
-
-## /var (variable)
+### /var (variable)
 某些大文件的溢出区，比方说各种服务的日志文件
-
-## /usr (UNIX Software Resource)
+### /usr (UNIX Software Resource)
 最庞大的目录，要用到的应用程序和文件几乎都在这个目录
+
+## profile,bash_profile,bashrc
+### profile(etc/profile)
+设置系统级的环境变量和启动程序，当用户登录login时，文件会被执行，并从/etc/profile.d目录下查找shell的设置
+### bashrc
+用于配置函数或者别名。有两种级别，系统级位于/etc/bashrc，用户级位于~/.bashrc，两者分别会对所有用户和当前用户生效，bashrc只会针对指定的shell类型起作用。bash只会被bash shell调用
+
+### bash_profile 文件
+bash_profile只对单一用户生效，文件存储于~/.bash_profile，是用户级别的设置，可以理解为某一个用户的profile目录下，这个文件同样可以用于环境配置和启动程序，但对单个用户有效。与profile不同的是，bash_profile 只会对当前用户生效
