@@ -37,3 +37,5 @@ fcitx5 &
 问题解决：bash每次启动时候会添加每个用户下的.bashrc文件，该文件里面时bash的配置
          只需在该配置文件里面加上一句即可alias ll='ls -l',保存后再重新载入source ~/.bashrc
          如果时对于所有用户，则配置文件在/etc/bash.bashrc
+
+## 配置Java开发环境
