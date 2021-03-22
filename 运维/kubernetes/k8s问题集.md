@@ -1,10 +1,17 @@
-## 常见缩写
+## 常见资源缩写
 rc：replication controller
 rs：replicaSet
 po：pods
 svc：service
 ns：namespace
 ds: daemonSet
+pv: persistent volume
+pvc：persistent volume claim
+sc：storage class
+
+## 常见操作
+操作资源： kubectl get/delete po
+查看yaml属性：kubectl explain pod.spec
 
 ## minikube 的安装与设置
 https://www.jianshu.com/p/3152aa738e39
