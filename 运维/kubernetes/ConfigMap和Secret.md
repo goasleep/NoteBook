@@ -54,4 +54,10 @@ K8S通过符号链接的方式更新卷。每当ConfigMap被更新后，K8s就�
 
 如果挂载的是卷中的单个文件，而不是完整的卷，那么ConfigMap更新后对应的文件不会被更新
 
+# Secret
+Secret只会存储在节点中，永不写入物理存储，这样从节点删除Secret就不需要擦除磁盘了。
+Secret的条目会以Base64格式编码。使用方式和ConfigMap一致
+## 存在的意义
+Secret解决了密码、token、密钥等敏感数据的配置问题，而不需要把这些敏感数据暴露到镜像或者Pod Spec中。Secret可以以Volume或者环境变量的方式使用。
+
 

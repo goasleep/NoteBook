@@ -8,6 +8,7 @@ ds: daemonSet
 pv: persistent volume
 pvc：persistent volume claim
 sc：storage class
+cm: configMap
 
 ## 常见操作
 操作资源： kubectl get/delete po

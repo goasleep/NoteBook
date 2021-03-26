@@ -20,3 +20,12 @@
 ## 函数式编程
 函数式编程（FP）的意义所在。通过合并现有代码来生成新功能而不是从头开始编写所有内容，我们可以更快地获得更可靠的代码。
 OO（object oriented，面向对象）是抽象数据，FP（functional programming，函数式编程）是抽象行为。
+
+## Stream的使用建议
+- 简单的迭代逻辑，可以直接使用 iterator，对于有多步处理的迭代逻辑，可以使用 stream，损失一点几乎没有的效率，换来代码的高可读性是值得的；
+- 单核 cpu 环境，不推荐使用 parallel stream，在多核 cpu 且有大数据量的条件下，推荐使用 paralle stream；
+- stream 中含有装箱类型，在进行中间操作之前，最好转成对应的数值流，减少由于频繁的拆箱、装箱造成的性能损失
+
+https://xie.infoq.cn/article/6521ea3ae8a36f2bdaece6e61
+
+## IO流装饰器模式
