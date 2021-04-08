@@ -49,11 +49,10 @@ https://zhuanlan.zhihu.com/p/32052223
 ## 控制器
 控制器通过API服务器监听资源变更，对变更执行操作。将资源的实际状态调整为期望状态。每种资源都有一种对应的控制器
 ![Kubernetes组件通过API服务器监听API](../../image/Kubernetes组件通过API服务器监听API%20对象.png)
-![Deployment资源提交到API服务器的事件链](../../image/Deployment资源提交到API服务器的事件链.png)
 
 ### 控制器如何协作
 控制器通过事件链的方式进行合作。下面时创建deployment时的过程。
-
+![Deployment资源提交到API服务器的事件链](../../image/Deployment资源提交到API服务器的事件链.png)
 
 ## kubelet
 kubelet负责所有运行在工作节点上的内容组件
@@ -63,11 +62,11 @@ kubelet负责所有运行在工作节点上的内容组件
 - pod从API服务器删除时，kubelet终止容器，并通知服务器pod已经被终止
 
 ## kube-proxy
-kube-proxy用于确保客户端可以通过kubernetes API 连接到你定义的服务，确保对服务IP和端口的连接最终能到达支持服务的某个pod处。如果有多个pod，它会发挥负载均衡的作用
+kube-proxy用于确保客户端可以通过kubernetes API 连接到你定义的服务，确保对服务IP和端口的连接最终能到达支持服务的某个pod处。如果有多个pod，它会发挥负载均衡的作用。
+kube-proxy除了监控API对service的更改，也监控对endpoint的更改
 
 ### 代理模式
 - userspace代理模式
 ![userspace代理模式](../../image/userspace代理模式.png)
 - iptables代理模式
 ![iptables代理模式](../../image/iptables代理模式.png)
-

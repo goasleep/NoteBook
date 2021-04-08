@@ -20,3 +20,11 @@ StatefulSet可以拥有一个或者多个卷的声明模板，这些持久卷声
 当因为错误缩容后，可以通过扩容操作恢复。因为缩容并不会删除持久卷声明。
 ![Statefulset创建pod和持久卷声明](../../image/Statefulset创建pod和持久卷声明.png)
 
+## StatefulSet的使用
+在创建StatefulSet之前，还需要创建
+- 存储文件数据的持久卷
+- StatefulSet必须的一个控制Service
+- Stateful本身
+
+## StatefulSet如何处理失败节点
+Stateful要保证不会有两个相同标记和存储的pod同时运行。因为在明确知道一个pod不再运行之前，它不能也不应该创建和替换pod
