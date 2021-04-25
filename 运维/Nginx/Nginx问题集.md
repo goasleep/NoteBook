@@ -36,3 +36,8 @@ location会尝试根据用户请求中的URI来匹配上面的/uri表达式。lo
 2. alias在使用正则匹配时，必须捕捉要匹配的内容并在指定的内容处使用
 3. alias只能位于location块中
 4. root的处理结果是：root路径 ＋ location路径，而alisa会使用alias路径替换location路径
+
+## 热点
+1. Nginx 事件循环机制
+2. Nginx 处理Http请求流程
+3. Nginx 如何做热部署

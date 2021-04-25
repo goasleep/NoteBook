@@ -19,3 +19,4 @@ Nginx并不会立刻转发到上游服务器，而是先把用户的请求（包
 7. proxy_pass_request_headers：作用为确定是否转发HTTP头部。
 8. proxy_redirect：当上游服务器返回的响应是重定向或刷新请求（ 如HTTP响应码是301或者302） 时，proxy_redirect可以重设HTTP头部的location或refresh字段
 9. proxy_next_upstream：此配置项表示当向一台上游服务器转发请求出现错误时， 继续换一台上游服务器处理这个请求
+
